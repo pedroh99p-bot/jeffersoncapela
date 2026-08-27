@@ -24,7 +24,7 @@ export function ServiceCard({
 }: ServiceCardProps) {
   if (featured) {
     return (
-      <article className="relative overflow-hidden rounded-lg border border-gold/60 bg-[radial-gradient(circle_at_85%_25%,rgba(216,170,60,0.18),transparent_34%),linear-gradient(145deg,#1b1b1b,#0b0b0b)] p-5 sm:p-7">
+      <article className="relative overflow-hidden rounded-[24px] border border-gold/60 bg-[radial-gradient(circle_at_85%_25%,rgba(216,170,60,0.18),transparent_34%),linear-gradient(145deg,#1b1b1b,#0b0b0b)] p-5 sm:p-7">
         <div className="relative z-10 max-w-[70%] space-y-4 sm:max-w-lg">
           <span className="inline-flex items-center gap-2 rounded-md bg-[linear-gradient(135deg,#f5d370,#bf8c26)] px-3 py-2 text-xs font-black uppercase text-black">
             <Icon name="check" className="h-4 w-4" />
@@ -76,7 +76,7 @@ export function ServiceCard({
 
   return (
     <a
-      className="group flex min-h-20 items-center gap-4 rounded-lg border border-gold/35 bg-white/[0.035] p-4 transition hover:border-gold/75 hover:bg-gold/8"
+      className="group flex min-h-20 items-center gap-4 rounded-[18px] border border-gold/35 bg-white/[0.035] p-4 transition hover:border-gold/75 hover:bg-gold/8"
       href={href}
     >
       <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-white/12 bg-white/[0.04] text-white/80 group-hover:text-gold">

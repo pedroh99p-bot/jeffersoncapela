@@ -8,7 +8,7 @@ type GoldButtonProps = {
   type?: "button" | "submit";
   target?: string;
   rel?: string;
-  icon?: "arrowRight" | "message" | "whatsapp";
+  icon?: "arrowRight" | "calendar" | "message" | "whatsapp";
 };
 
 export function GoldButton({
@@ -21,7 +21,7 @@ export function GoldButton({
   icon = "arrowRight",
 }: GoldButtonProps) {
   const classes = [
-    "inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-lg",
+    "inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl",
     "border border-[#f1d47a]/70 bg-[linear-gradient(135deg,#f5cf64,#c99425)]",
     "px-5 py-4 text-center text-sm font-black uppercase tracking-normal text-black",
     "shadow-[inset_0_1px_0_rgba(255,255,255,0.45)] transition",

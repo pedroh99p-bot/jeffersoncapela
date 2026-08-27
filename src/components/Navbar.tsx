@@ -1,14 +1,26 @@
+"use client";
+
 import Image from "next/image";
-import { business, sectionMap } from "@/data/business";
+import { useState } from "react";
+import { business, internalLinks, links } from "@/data/business";
 import { Icon } from "@/components/Icon";
 
-const navSections = sectionMap.slice(0, 5);
-
 export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function closeMenu() {
+    setIsOpen(false);
+  }
+
   return (
-    <header className="sticky top-0 z-30 border-b border-white/10 bg-[#050505]/92 backdrop-blur">
-      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-5 sm:h-24 sm:px-8">
-        <a aria-label="Ir para o inicio" className="relative h-12 w-40 sm:h-14 sm:w-52" href="#hero">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#050505]/92 backdrop-blur">
+      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-5 sm:h-22 sm:px-8">
+        <a
+          aria-label="Ir para o início"
+          className="relative h-12 w-40 sm:h-14 sm:w-52"
+          href="#hero"
+          onClick={closeMenu}
+        >
           <Image
             alt={`Logo ${business.name}`}
             className="object-contain object-left"
@@ -19,34 +31,65 @@ export function Navbar() {
           />
         </a>
 
-        <nav aria-label="Seções principais" className="hidden items-center gap-2 lg:flex">
-          {navSections.map((section) => (
+        <nav aria-label="Seções principais" className="hidden items-center gap-1 lg:flex">
+          {internalLinks.slice(0, 7).map((item) => (
             <a
               className="rounded-full px-3 py-2 text-sm font-semibold text-white/72 transition hover:bg-white/8 hover:text-white"
-              href={`#${section.id}`}
-              key={section.id}
+              href={item.href}
+              key={item.href}
             >
-              {section.label}
+              {item.label}
             </a>
           ))}
         </nav>
 
-        <details className="relative lg:hidden">
-          <summary className="flex h-14 w-14 cursor-pointer list-none items-center justify-center rounded-2xl border border-gold/70 text-gold [&::-webkit-details-marker]:hidden">
+        <a
+          className="hidden min-h-11 items-center justify-center rounded-full border border-gold/60 px-5 text-sm font-black uppercase text-gold transition hover:bg-gold/10 lg:inline-flex"
+          href={links.whatsapp}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          WhatsApp
+        </a>
+
+        <div className="relative lg:hidden">
+          <button
+            aria-expanded={isOpen}
+            aria-label="Abrir menu"
+            className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/70 text-gold"
+            onClick={() => setIsOpen((current) => !current)}
+            type="button"
+          >
             <Icon name="menu" className="h-7 w-7" />
-          </summary>
-          <nav className="absolute right-0 top-16 w-64 rounded-lg border border-gold/45 bg-[#111]/98 p-2 shadow-2xl">
-            {navSections.map((section) => (
+          </button>
+
+          {isOpen ? (
+            <div className="absolute right-0 top-16 w-[min(20rem,calc(100vw-2.5rem))] rounded-[24px] border border-gold/45 bg-[#111]/98 p-3 shadow-2xl">
+              <nav aria-label="Menu mobile" className="grid gap-1">
+                {internalLinks.map((item) => (
+                  <a
+                    className="rounded-2xl px-4 py-3 text-sm font-semibold text-white/80 hover:bg-gold/10 hover:text-white"
+                    href={item.href}
+                    key={item.href}
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
               <a
-                className="block rounded-md px-4 py-3 text-sm font-semibold text-white/80 hover:bg-gold/10 hover:text-white"
-                href={`#${section.id}`}
-                key={section.id}
+                className="mt-3 flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[linear-gradient(135deg,#f5cf64,#c99425)] px-4 text-sm font-black uppercase text-black"
+                href={links.whatsapp}
+                onClick={closeMenu}
+                rel="noopener noreferrer"
+                target="_blank"
               >
-                {section.order}. {section.label}
+                <Icon name="whatsapp" className="h-5 w-5" />
+                Falar no WhatsApp
               </a>
-            ))}
-          </nav>
-        </details>
+            </div>
+          ) : null}
+        </div>
       </div>
     </header>
   );

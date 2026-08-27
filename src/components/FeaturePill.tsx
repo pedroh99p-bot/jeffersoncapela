@@ -2,7 +2,18 @@ import { Icon } from "@/components/Icon";
 
 type FeaturePillProps = {
   title: string;
-  icon?: "calendar" | "check" | "clipboard" | "file" | "message" | "shield" | "user" | "whatsapp";
+  icon?:
+    | "calendar"
+    | "check"
+    | "clipboard"
+    | "file"
+    | "globe"
+    | "lock"
+    | "mapPin"
+    | "message"
+    | "shield"
+    | "user"
+    | "whatsapp";
   compact?: boolean;
 };
 
@@ -14,7 +25,7 @@ export function FeaturePill({
   return (
     <div
       className={[
-        "flex items-center gap-3 rounded-lg border border-gold/45 bg-white/[0.04]",
+        "flex items-center gap-3 rounded-[18px] border border-gold/45 bg-white/[0.04]",
         compact ? "px-3 py-3" : "px-4 py-4",
       ].join(" ")}
     >

@@ -45,14 +45,14 @@ export function ConsultationForm() {
 
   return (
     <form
-      className="rounded-lg border border-gold/55 bg-[linear-gradient(145deg,rgba(255,255,255,0.075),rgba(255,255,255,0.02))] p-5 sm:p-8"
+      className="rounded-[24px] border border-gold/55 bg-[linear-gradient(145deg,rgba(255,255,255,0.075),rgba(255,255,255,0.02))] p-5 sm:p-8"
       onSubmit={handleSubmit}
     >
       <div className="grid gap-5">
         <label className="grid gap-2">
           <span className="text-sm font-black uppercase text-white">Nome</span>
           <input
-            className="min-h-14 rounded-lg border border-gold/55 bg-black/35 px-4 text-base text-white outline-none transition placeholder:text-white/38 focus:border-[#f5cf64]"
+            className="min-h-14 rounded-2xl border border-gold/55 bg-black/35 px-4 text-base text-white outline-none transition placeholder:text-white/38 focus:border-[#f5cf64] focus:ring-2 focus:ring-gold/20"
             name="name"
             onChange={(event) => updateField("name", event.target.value)}
             placeholder="Como podemos te chamar?"
@@ -66,7 +66,7 @@ export function ConsultationForm() {
             Seu estado
           </span>
           <select
-            className="min-h-14 rounded-lg border border-gold/55 bg-black/35 px-4 text-base text-white outline-none transition focus:border-[#f5cf64]"
+            className="min-h-14 rounded-2xl border border-gold/55 bg-black/35 px-4 text-base text-white outline-none transition focus:border-[#f5cf64] focus:ring-2 focus:ring-gold/20"
             name="state"
             onChange={(event) => updateField("state", event.target.value)}
             value={form.state}
@@ -85,7 +85,7 @@ export function ConsultationForm() {
             Serviço ou assunto
           </span>
           <select
-            className="min-h-14 rounded-lg border border-gold/55 bg-black/35 px-4 text-base text-white outline-none transition focus:border-[#f5cf64]"
+            className="min-h-14 rounded-2xl border border-gold/55 bg-black/35 px-4 text-base text-white outline-none transition focus:border-[#f5cf64] focus:ring-2 focus:ring-gold/20"
             name="service"
             onChange={(event) => updateField("service", event.target.value)}
             value={form.service}
@@ -103,7 +103,7 @@ export function ConsultationForm() {
             Situação atual do processo
           </span>
           <textarea
-            className="min-h-36 resize-y rounded-lg border border-gold/55 bg-black/35 px-4 py-4 text-base leading-7 text-white outline-none transition placeholder:text-white/38 focus:border-[#f5cf64]"
+            className="min-h-36 resize-y rounded-2xl border border-gold/55 bg-black/35 px-4 py-4 text-base leading-7 text-white outline-none transition placeholder:text-white/38 focus:border-[#f5cf64] focus:ring-2 focus:ring-gold/20"
             name="situation"
             onChange={(event) => updateField("situation", event.target.value)}
             placeholder="Ex.: ainda não iniciei, estou renovando, recebi uma exigência ou preciso organizar os documentos."

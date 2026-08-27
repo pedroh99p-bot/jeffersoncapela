@@ -5,8 +5,19 @@ type IconName =
   | "chevron"
   | "clipboard"
   | "file"
+  | "folder"
+  | "globe"
+  | "home"
+  | "instagram"
+  | "lock"
+  | "mapPin"
   | "menu"
   | "message"
+  | "minus"
+  | "plus"
+  | "question"
+  | "route"
+  | "search"
   | "shield"
   | "swap"
   | "user"
@@ -42,11 +53,58 @@ const paths: Record<IconName, ReactNode> = {
       <path d="M8 13h8M8 17h6" />
     </>
   ),
+  folder: <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />,
+  globe: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+    </>
+  ),
+  home: (
+    <>
+      <path d="m3 11 9-8 9 8" />
+      <path d="M5 10v10h14V10" />
+    </>
+  ),
+  instagram: (
+    <>
+      <rect width="18" height="18" x="3" y="3" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <path d="M17.5 6.5h.01" />
+    </>
+  ),
+  lock: (
+    <>
+      <rect width="18" height="12" x="3" y="10" rx="2" />
+      <path d="M7 10V7a5 5 0 0 1 10 0v3" />
+    </>
+  ),
+  mapPin: (
+    <>
+      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
+    </>
+  ),
   menu: <path d="M5 7h14M5 12h14M5 17h14" />,
   message: (
     <>
       <path d="M21 12a8 8 0 0 1-8 8H7l-4 2 1.5-4A8 8 0 1 1 21 12Z" />
       <path d="M9 11h6M9 15h4" />
+    </>
+  ),
+  minus: <path d="M5 12h14" />,
+  plus: <path d="M12 5v14M5 12h14" />,
+  question: (
+    <>
+      <path d="M9.1 9a3 3 0 1 1 5.8 1c-.4 1.2-1.7 1.7-2.3 2.5-.4.5-.6.9-.6 1.5" />
+      <path d="M12 18h.01" />
+    </>
+  ),
+  route: <path d="M6 19c3-7 9-7 12-14m0 0h-6m6 0v6M4 5h.01M4 19h.01" />,
+  search: (
+    <>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20 20-3.5-3.5" />
     </>
   ),
   shield: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />,
