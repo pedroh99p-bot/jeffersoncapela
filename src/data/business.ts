@@ -93,10 +93,10 @@ export const services = [
 ] as const;
 
 export const quickFacts = [
-  "Atendimento direto pelo WhatsApp",
-  "Orientação documental em cada etapa",
-  "Conferência antes do protocolo",
-  "Processo sujeito à análise do órgão responsável",
+  "Atendimento pelo WhatsApp",
+  "Orientação em cada etapa",
+  "Conferência documental",
+  "Análise pelo órgão responsável",
 ] as const;
 
 export const differentiators = [

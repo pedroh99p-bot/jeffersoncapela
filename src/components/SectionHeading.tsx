@@ -6,6 +6,9 @@ type SectionHeadingProps = {
   title: ReactNode;
   description?: string;
   align?: "left" | "center";
+  className?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
 };
 
 export function SectionHeading({
@@ -14,14 +17,18 @@ export function SectionHeading({
   title,
   description,
   align = "left",
+  className = "",
+  titleClassName = "",
+  descriptionClassName = "",
 }: SectionHeadingProps) {
   const HeadingTag = as;
 
   return (
     <div
       className={[
-        "space-y-4",
+        "space-y-3 sm:space-y-4",
         align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl",
+        className,
       ].join(" ")}
     >
       {eyebrow ? (
@@ -29,11 +36,21 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <HeadingTag className="text-4xl font-black uppercase leading-[0.98] text-white sm:text-5xl lg:text-6xl">
+      <HeadingTag
+        className={[
+          "text-[2.1rem] font-black uppercase leading-[1.02] text-white sm:text-5xl lg:text-6xl",
+          titleClassName,
+        ].join(" ")}
+      >
         {title}
       </HeadingTag>
       {description ? (
-        <p className="text-lg leading-8 text-white/74 sm:text-xl">
+        <p
+          className={[
+            "text-base leading-7 text-white/74 sm:text-xl sm:leading-8",
+            descriptionClassName,
+          ].join(" ")}
+        >
           {description}
         </p>
       ) : null}

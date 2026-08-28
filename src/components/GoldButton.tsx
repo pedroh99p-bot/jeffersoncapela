@@ -9,6 +9,7 @@ type GoldButtonProps = {
   target?: string;
   rel?: string;
   icon?: "arrowRight" | "calendar" | "message" | "whatsapp";
+  disabled?: boolean;
 };
 
 export function GoldButton({
@@ -19,6 +20,7 @@ export function GoldButton({
   target,
   rel,
   icon = "arrowRight",
+  disabled = false,
 }: GoldButtonProps) {
   const classes = [
     "inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl",
@@ -26,6 +28,7 @@ export function GoldButton({
     "px-5 py-4 text-center text-sm font-black uppercase tracking-normal text-black",
     "shadow-[inset_0_1px_0_rgba(255,255,255,0.45)] transition",
     "hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f5cf64]",
+    "disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-none disabled:bg-white/8 disabled:text-white/35 disabled:shadow-none disabled:hover:brightness-100",
     "sm:w-auto sm:min-w-72",
     className,
   ].join(" ");
@@ -40,7 +43,7 @@ export function GoldButton({
   }
 
   return (
-    <button className={classes} type={type}>
+    <button className={classes} disabled={disabled} type={type}>
       <Icon name={icon} className="h-5 w-5 shrink-0" />
       <span>{children}</span>
     </button>

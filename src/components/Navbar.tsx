@@ -14,10 +14,10 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-[#050505]/92 backdrop-blur">
-      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-5 sm:h-22 sm:px-8">
+      <div className="mx-auto flex h-18 w-full max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-8">
         <a
           aria-label="Ir para o início"
-          className="relative h-12 w-40 sm:h-14 sm:w-52"
+          className="relative h-10 w-36 sm:h-13 sm:w-48"
           href="#hero"
           onClick={closeMenu}
         >
@@ -26,7 +26,7 @@ export function Navbar() {
             className="object-contain object-left"
             fill
             priority
-            sizes="(max-width: 640px) 160px, 208px"
+            sizes="(max-width: 640px) 144px, 192px"
             src={business.assets.logo}
           />
         </a>
@@ -56,15 +56,15 @@ export function Navbar() {
           <button
             aria-expanded={isOpen}
             aria-label="Abrir menu"
-            className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/70 text-gold"
+            className="flex h-12 w-12 items-center justify-center rounded-[14px] border border-gold/70 text-gold"
             onClick={() => setIsOpen((current) => !current)}
             type="button"
           >
-            <Icon name="menu" className="h-7 w-7" />
+            <Icon name="menu" className="h-6 w-6" />
           </button>
 
           {isOpen ? (
-            <div className="absolute right-0 top-16 w-[min(20rem,calc(100vw-2.5rem))] rounded-[24px] border border-gold/45 bg-[#111]/98 p-3 shadow-2xl">
+            <div className="absolute right-0 top-14 w-[min(20rem,calc(100vw-2rem))] rounded-[18px] border border-gold/45 bg-[#111]/98 p-3 shadow-2xl">
               <nav aria-label="Menu mobile" className="grid gap-1">
                 {internalLinks.map((item) => (
                   <a
