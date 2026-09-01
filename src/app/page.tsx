@@ -7,7 +7,9 @@ import {
   location,
   quickFacts,
   services,
+  specialistFacts,
 } from "@/data/business";
+import { AuthorityProof } from "@/components/AuthorityProof";
 import { AuthorityMarquee } from "@/components/AuthorityMarquee";
 import { ConsultationForm } from "@/components/ConsultationForm";
 import { FAQAccordion } from "@/components/FAQAccordion";
@@ -40,11 +42,11 @@ export default function Home() {
     <>
       <Navbar />
       <main className="overflow-x-hidden bg-background text-foreground">
-        <section className="section-shell pt-6 sm:pt-10" id="hero">
-          <div className="grid gap-7 pb-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:pb-16">
+        <section className="section-shell pt-6 sm:pt-10 lg:pt-8" id="hero">
+          <div className="grid gap-7 pb-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:pb-6">
             <ScrollReveal>
-              <div className="relative overflow-hidden rounded-[20px] border border-gold/45 bg-[radial-gradient(circle_at_78%_28%,rgba(216,170,60,0.18),transparent_40%),linear-gradient(155deg,#202020,#070707)] p-4 sm:p-6 lg:hidden">
-                <div className="relative min-h-[23rem] sm:min-h-[25rem]">
+              <div className="hero-mobile-card relative overflow-hidden rounded-[20px] border border-gold/45 bg-[radial-gradient(circle_at_78%_28%,rgba(216,170,60,0.18),transparent_40%),linear-gradient(155deg,#202020,#070707)] p-4 sm:p-6 lg:hidden">
+                <div className="relative min-h-[20rem] sm:min-h-[24rem]">
                   <div className="relative z-10 max-w-[62%]">
                   <SectionHeading
                     as="h1"
@@ -60,10 +62,10 @@ export default function Home() {
                   />
                   </div>
 
-                  <div className="hero-portrait-fade pointer-events-none absolute -right-11 top-[5.25rem] h-[25rem] w-[72%] sm:-right-7 sm:w-[66%]">
+                  <div className="hero-mobile-portrait pointer-events-none absolute -right-10 top-[4.75rem] z-[1] h-[24rem] w-[72%] sm:-right-6 sm:top-[5rem] sm:h-[26rem] sm:w-[66%]">
                     <Image
                       alt={business.name}
-                      className="object-contain object-top"
+                      className="hero-mobile-portrait-image object-contain object-top"
                       fill
                       priority
                       sizes="72vw"
@@ -77,7 +79,11 @@ export default function Home() {
                   com orientação em cada etapa.
                 </p>
 
-                <div className="relative z-10 mt-4 grid grid-cols-2 gap-2">
+                <div className="relative z-10 mt-3">
+                  <AuthorityProof compact />
+                </div>
+
+                <div className="relative z-10 mt-3 grid grid-cols-4 gap-1.5">
                   {quickFacts.map((fact, index) => (
                     <FeaturePill
                       compact
@@ -91,6 +97,7 @@ export default function Home() {
                               : "shield"
                       }
                       key={fact}
+                      tile
                       title={fact}
                     />
                   ))}
@@ -103,7 +110,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="hidden space-y-6 lg:block">
+              <div className="hidden space-y-5 lg:block">
                 <SectionHeading
                   as="h1"
                   eyebrow="Assessoria para CR/CAC"
@@ -116,7 +123,7 @@ export default function Home() {
                   description="Assessoria especializada para conduzir seu processo documental com orientação em cada etapa."
                 />
 
-                <div className="grid gap-2.5 sm:grid-cols-2 lg:max-w-xl">
+                <div className="grid grid-cols-4 gap-2 lg:max-w-2xl">
                   {quickFacts.map((fact, index) => (
                     <FeaturePill
                       compact
@@ -130,22 +137,34 @@ export default function Home() {
                               : "shield"
                       }
                       key={fact}
+                      tile
                       title={fact}
                     />
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-3">
-                  <GoldButton href="#consulta-rapida" icon="whatsapp">
-                    Falar com Jefferson agora
+                <AuthorityProof compact />
+
+                <div className="grid grid-cols-2 gap-3">
+                  <GoldButton
+                    className="sm:!min-w-0 sm:!w-full sm:!text-xs"
+                    href="#consulta-rapida"
+                    icon="whatsapp"
+                  >
+                    Falar com Jefferson
                   </GoldButton>
-                  <OutlineButton href="#servicos">Ver investimento</OutlineButton>
+                  <OutlineButton
+                    className="sm:!min-w-0 sm:!w-full sm:!text-xs"
+                    href="#servicos"
+                  >
+                    Ver investimento
+                  </OutlineButton>
                 </div>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <div className="relative hidden min-h-[590px] overflow-hidden rounded-[20px] border border-gold/45 bg-[radial-gradient(circle_at_72%_35%,rgba(216,170,60,0.2),transparent_42%),linear-gradient(155deg,#202020,#070707)] lg:block">
+              <div className="relative hidden min-h-[560px] overflow-hidden rounded-[20px] border border-gold/45 bg-[radial-gradient(circle_at_72%_35%,rgba(216,170,60,0.2),transparent_42%),linear-gradient(155deg,#202020,#070707)] lg:block">
                 <Image
                   alt={business.name}
                   className="hero-portrait-fade object-contain object-bottom"
@@ -185,15 +204,15 @@ export default function Home() {
         <section className="section-shell py-12 sm:py-16 lg:py-20" id="especialista">
           <div className="grid gap-6 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:gap-10">
             <ScrollReveal>
-              <article className="relative min-h-[380px] overflow-hidden rounded-[20px] border border-gold/55 bg-[radial-gradient(circle_at_58%_25%,rgba(216,170,60,0.18),transparent_36%),linear-gradient(145deg,#1e1e1e,#090909)] sm:min-h-[520px] lg:min-h-[640px]">
+              <article className="specialist-portrait-card relative min-h-[380px] overflow-hidden rounded-[20px] border border-gold/55 bg-[radial-gradient(circle_at_58%_25%,rgba(216,170,60,0.18),transparent_36%),linear-gradient(145deg,#1e1e1e,#090909)] sm:min-h-[520px] lg:min-h-[640px]">
                 <Image
                   alt={business.name}
-                  className="object-contain object-bottom"
+                  className="specialist-portrait-image object-contain object-bottom"
                   fill
                   sizes="(max-width: 1024px) 100vw, 45vw"
                   src={business.assets.specialistPhoto}
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-4 sm:p-7">
+                <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-7">
                   <h2 className="text-2xl font-black uppercase leading-none text-white sm:text-4xl">
                     {business.name}
                   </h2>
@@ -210,11 +229,16 @@ export default function Home() {
                 title="Seu processo acompanhado por quem conhece a documentação"
                 description="Assessoria para CR/CAC, aquisição, posse, orientação sobre porte, transferência e regularização documental."
               />
-              <div className="grid gap-2.5 sm:grid-cols-2 sm:gap-3">
-                <FeaturePill icon="user" title="Atendimento individual" />
-                <FeaturePill icon="clipboard" title="Orientação em cada etapa" />
-                <FeaturePill icon="file" title="Conferência documental" />
-                <FeaturePill icon="whatsapp" title="Suporte pelo WhatsApp" />
+              <AuthorityProof />
+              <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                {specialistFacts.map((fact) => (
+                  <FeaturePill
+                    compact
+                    icon={fact.icon}
+                    key={fact.title}
+                    title={fact.title}
+                  />
+                ))}
               </div>
               <GoldButton
                 href={links.specialistWhatsApp}
@@ -525,7 +549,7 @@ export default function Home() {
         </section>
       </main>
       <Footer />
-      <WhatsAppButton floating href={links.whatsapp} label="Falar pelo WhatsApp" />
+      <WhatsAppButton floating href={links.whatsapp} label="Atendimento direto" />
     </>
   );
 }

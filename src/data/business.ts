@@ -42,6 +42,18 @@ export const business = {
     specialistPhoto: "/assets/specialist.png",
     logo: "/assets/logo.webp",
     heroCutout: "/assets/hero-cutout.webp",
+    googleLogo: "/assets/google-g.png",
+    whatsappGlyph: "/assets/whatsapp-glyph.svg",
+  },
+} as const;
+
+export const authorityProof = {
+  approvedCases: null as number | null,
+  experienceYears: null as number | null,
+  google: {
+    rating: 5,
+    reviewCount: null as number | null,
+    profileUrl: null as string | null,
   },
 } as const;
 
@@ -93,10 +105,17 @@ export const services = [
 ] as const;
 
 export const quickFacts = [
-  "Atendimento pelo WhatsApp",
-  "Orientação em cada etapa",
-  "Conferência documental",
-  "Análise pelo órgão responsável",
+  "WhatsApp",
+  "Orientação",
+  "Conferência",
+  "Análise responsável",
+] as const;
+
+export const specialistFacts = [
+  { icon: "user", title: "Atendimento individual" },
+  { icon: "clipboard", title: "Orientação em cada etapa" },
+  { icon: "file", title: "Conferência documental" },
+  { icon: "whatsapp", title: "Suporte pelo WhatsApp" },
 ] as const;
 
 export const differentiators = [
